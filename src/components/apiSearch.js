@@ -4,55 +4,62 @@ import $ from 'jquery';
 class ApiSearch extends Component {
   constructor(){
     super();
-  }
-
-  movie_api = "http://api.themoviedb.org/3/search/movie";
-
-  componentDidMount(){
-    getAndRenderMovies();
-    $("form").on("submit", function(e) {
-      e.preventDefault();
-      getAndRenderMovies();
-    });
-  };
-
-  getAndRenderMovies() {
-    $.ajax({
-      method: "GET",
-      url: movie_api,
-      data: $("form").serialize(),
-      dataType: "jsonp",
-      success: onSuccess,
-      error: onError
-    });
-  }
-
-  onSuccess(json) {
-    console.log(json);
-    for(let res of json.results){
-    $(".movies").append(res.title + '</br>' + res.overview + '</br>' + (`<img src="https://image.tmdb.org/t/p/w200/${res.poster_path}">`) );
+    this.state = {
+      movieSearch: []
     }
+    this.onFormSubmit = this.onFormSubmit.bind(this);
+    // this.movieSearch = this.movieSearch.bind(this);
   }
 
-  onError(xhr, status, errorThrown) {
-    alert("Sorry, there was a problem with the API!");
-    console.log("Error: " + errorThrown);
-    console.log("Status: " + status);
-    console.dir(xhr);
+  onFormSubmit(e){
+    e.preventDefault()
+    let movieSearch = this.refs.movieSearch.value;
+    fetch('http://localhost:8080/api/movies?query=' + movieSearch)
+      .then(res => res.json())
+      .then(json => {
+        console.log(json);
+        this.setState({movieSearch: json.results});
+    });
   }
 
   render() {
     return (
       <div>
-        <h1>test-api-MyMovies</h1>
-        <form class="form-inline">
-            <label>Search Movies</label>
-            <input type="text" class="form-control" name="query" value="terminator" placeholder="search movies">
-            <input type="hidden" name="api_key" value="fa2ca4d107cc5c945afc0d149bd3b890">
-            <!-- <input type="hidden" name="callback" value="onSuccess"> -->
-            <input type="submit" value="Go!" class="btn btn-primary">
-          </form>
-        <div class="movies"></div>
+        <h1>API MyMovies</h1>
+        <form className="form-inline" onSubmit={ this.onFormSubmit }>
+          <label>Search Movies</label>
+          <input
+            type="text"
+            // className="form-control"
+            // name="query"
+            // value="terminator"
+            placeholder="search movies"
+            ref="movieSearch"/>
+          {/* <input
+            type="hidden"
+            name="api_key"
+            value="fa2ca4d107cc5c945afc0d149bd3b890"/> */}
+          {/* <input
+            type="hidden"
+            name="callback"
+            value="onSuccess"/> */}
+          <input
+            type="submit"
+            value="Go!"
+            className="btn btn-primary"/>
+        </form>
+        <div className="movies">
+          { this.state.movieSearch.map(eachMovie => {
+              return(
+                <div>
+                  <p>{ eachMovie.title }</p>
+                  <p>{ eachMovie.overview }</p>
+                  <li><img src={ `https://image.tmdb.org/t/p/w200//` + eachMovie.poster_path } /></li>
+                </div>
+              )
+            }
+          ) }
+        </div>
       </div>
    );
   }
