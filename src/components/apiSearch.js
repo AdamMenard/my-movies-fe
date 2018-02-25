@@ -8,7 +8,6 @@ class ApiSearch extends Component {
       movieSearch: []
     }
     this.onFormSubmit = this.onFormSubmit.bind(this);
-    // this.movieSearch = this.movieSearch.bind(this);
   }
 
   onFormSubmit(e){
@@ -24,37 +23,27 @@ class ApiSearch extends Component {
 
   render() {
     return (
-      <div>
+      <div id="apiSearch">
         <h1>API MyMovies</h1>
         <form className="form-inline" onSubmit={ this.onFormSubmit }>
           <label>Search Movies</label>
           <input
             type="text"
-            // className="form-control"
-            // name="query"
-            // value="terminator"
             placeholder="search movies"
-            ref="movieSearch"/>
-          {/* <input
-            type="hidden"
-            name="api_key"
-            value="fa2ca4d107cc5c945afc0d149bd3b890"/> */}
-          {/* <input
-            type="hidden"
-            name="callback"
-            value="onSuccess"/> */}
+            ref="movieSearch"
+            required />
           <input
             type="submit"
-            value="Go!"
+            value="Show me the Movies!"
             className="btn btn-primary"/>
         </form>
         <div className="movies">
           { this.state.movieSearch.map(eachMovie => {
               return(
                 <div>
+                  <img src={ `https://image.tmdb.org/t/p/w200//` + eachMovie.poster_path } />
                   <p>{ eachMovie.title }</p>
                   <p>{ eachMovie.overview }</p>
-                  <li><img src={ `https://image.tmdb.org/t/p/w200//` + eachMovie.poster_path } /></li>
                 </div>
               )
             }

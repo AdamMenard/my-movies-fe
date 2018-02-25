@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 
 class Header extends Component {
   render(){
@@ -11,24 +12,23 @@ class Header extends Component {
         </div>
         <ul id="nav">
 
-          <button id="login" className="btn btn-outline-dark">Login</button>
+          <button id="login" className="btn btn-outline-dark" data-toggle="modal" data-target="#loginModal">Login</button>
 
-
-          <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          {/* <button type="button" className="btn btn-primary" >
             Launch demo modal
-          </button>
+          </button> */}
 
-          <div className="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
             <div className="modal-dialog" role="document">
               <div className="modal-content">
                 <div className="modal-header">
-                  <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
+                  <h5 className="modal-title" id="loginModalLabel">Modal title</h5>
                   <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
                 <div className="modal-body">
-                  ...
+                  Login
                 </div>
                 <div className="modal-footer">
                   <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -38,9 +38,9 @@ class Header extends Component {
             </div>
           </div>
 
-          <a><h3>Other People</h3></a>
-          <a><h3>MyLists</h3></a>
-          <a><h3>About</h3></a>
+          <Link to='/community'><h3>Other People</h3></Link>
+          <Link to='/userProfile'><h3>MyLists</h3></Link>
+          <Link to='/'><h3>About</h3></Link>
         </ul>
       </header>
     )
