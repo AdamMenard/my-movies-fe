@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import Login from '../components/login';
+import SignUp from '../components/signUp';
 
 class Header extends Component {
   render(){
@@ -12,35 +14,31 @@ class Header extends Component {
         </div>
         <ul id="nav">
 
-          <button id="login" className="btn btn-outline-dark" data-toggle="modal" data-target="#loginModal">Login</button>
-
-          {/* <button type="button" className="btn btn-primary" >
-            Launch demo modal
-          </button> */}
-
-          <div className="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
-            <div className="modal-dialog" role="document">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h5 className="modal-title" id="loginModalLabel">Modal title</h5>
-                  <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div className="modal-body">
-                  Login
-                </div>
-                <div className="modal-footer">
-                  <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" className="btn btn-primary">Save changes</button>
+          <button id="signUp" className="btn btn-outline-dark" type="button" data-toggle="modal" data-target="#signUpModal">Sign Up</button>
+            <div className="modal fade" id="signUpModal" tabIndex="-1" role="dialog"  aria-hidden="true">
+              <div className="modal-dialog">
+                <div className="modal-content">
+                  <div className="modal-body">
+                    <SignUp/>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <Link to='/community'><h3>Other People</h3></Link>
-          <Link to='/userProfile'><h3>MyLists</h3></Link>
-          <Link to='/'><h3>About</h3></Link>
+          <button id="login" className="btn btn-outline-dark" type="button" data-toggle="modal" data-target="#loginModal">Login</button>
+            <div className="modal fade" id="loginModal" tabIndex="-1" role="dialog"  aria-hidden="true">
+              <div className="modal-dialog">
+                <div className="modal-content">
+                  <div className="modal-body">
+                    <Login/>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          <Link className="navLinks" to='/community'><h3>Other People</h3></Link>
+          <Link className="navLinks" to='/userProfile'><h3>MyLists</h3></Link>
+          <Link className="navLinks" to='/'><h3>About</h3></Link>
         </ul>
       </header>
     )

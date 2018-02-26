@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import $ from 'jquery';
+// import $ from 'jquery';
 
 class ApiSearch extends Component {
   constructor(){
@@ -25,6 +25,7 @@ class ApiSearch extends Component {
     return (
       <div id="apiSearch">
         <h1>API MyMovies</h1>
+        <hr/>
         <form className="form-inline" onSubmit={ this.onFormSubmit }>
           <label>Search Movies</label>
           <input
@@ -41,7 +42,7 @@ class ApiSearch extends Component {
           { this.state.movieSearch.map(eachMovie => {
               return(
                 <div>
-                  <img src={ `https://image.tmdb.org/t/p/w200//` + eachMovie.poster_path } />
+                  <img src={ `https://image.tmdb.org/t/p/w200//` + eachMovie.poster_path } alt="movie poster"/>
                   <p>{ eachMovie.title }</p>
                   <p>{ eachMovie.overview }</p>
                 </div>
