@@ -1,8 +1,4 @@
-/*.App {
-  text-align: center;
-}
-
-.App-logo {
+/*.App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
 }*/
@@ -16,6 +12,12 @@ body {
   height: 15vh;
   padding: 2vw;
   color: white;
+}
+
+.App-header h3 {
+  text-align: left;
+  width: auto;
+  display: inline-block;
 }
 
 .App-footer {
@@ -43,6 +45,11 @@ body {
 
 .footer-social {
   float: right;
+  text-align: right;
+}
+
+.footer-social a {
+  margin-right: 1vw;
 }
 
 #about, #apiSearch, #myLists, #community {
@@ -57,6 +64,16 @@ body {
 #loginForm {
   color: black;
   text-align: center;
+}
+
+#addToMyLists {
+  color: black;
+  text-align: center;
+  background-color: #999;
+}
+
+#addMoviePoster {
+  width: 30vw;
 }
 
 .navLinks {

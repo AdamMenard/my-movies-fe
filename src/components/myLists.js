@@ -20,7 +20,7 @@ class MyLists extends Component {
   render() {
     return (
       <div id="myLists">
-        <h1>My Lists component</h1>
+        <h1>MyMovies Lists</h1>
         <hr/>
         { this.state.movieLists.map(eachMovieList => {
           return(

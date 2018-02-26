@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
+// import CommunityMemberAllLists from '../components/communityMemberAllLists';
+// import CommunityMemberSingleList from '../components/communityMemberSingleList';
 
 class Community extends Component {
   constructor() {
@@ -20,12 +23,12 @@ class Community extends Component {
   render() {
     return (
       <div id="community">
-        <h1>Community component</h1>
+        <h1>MyMovies Community</h1>
         <hr/>
         { this.state.community.map(eachMember => {
           return(
             <div>
-              <h4>{ eachMember.name }</h4>
+              <Link to='/communityMemberAllLists'><h4>{ eachMember.name }</h4></Link>
             </div>
           )}
         )}

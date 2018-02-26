@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+// import { withRouter } from 'react-router-dom';
 
 class SignUp extends Component {
   constructor() {
@@ -14,10 +15,10 @@ class SignUp extends Component {
     e.preventDefault();
     fetch(`http://localhost:8080/api/users`, {
       method: 'POST',
-      // headers: {
-      //   'Accept': 'application/json',
-      //   'Content-Type': 'application/json',
-      // },
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({
         name: this.state.name,
         email: this.state.email,
@@ -40,7 +41,7 @@ class SignUp extends Component {
                  value={this.state.name}
                  onChange={e => this.setState({ name: e.target.value})}
                  required />
-           <small class="form-text text-muted">This is how your name will appear on the site.</small>
+           <small className="form-text text-muted">This is how your name will appear on the site.</small>
         </div>
         <div className="form-group">
           {/* <label>Email</label> */}
@@ -49,7 +50,7 @@ class SignUp extends Component {
                  value={this.state.email}
                  onChange={e => this.setState({ email: e.target.value})}
                  required />
-           <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+           <small className="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
         <div className="form-group">
           {/* <label>Password</label> */}
@@ -58,7 +59,7 @@ class SignUp extends Component {
                  value={this.state.password}
                  onChange={e => this.setState({ password: e.target.value})}
                  required />
-           <small class="form-text text-muted">Must be at least 5 characters long.</small>
+           <small className="form-text text-muted">Must be at least 5 characters long.</small>
         </div>
         <button className="btn btn-primary"
                 onClick={e => this.onSubmit(e)}>Ready to Join</button>

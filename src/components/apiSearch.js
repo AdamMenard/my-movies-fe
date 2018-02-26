@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-// import $ from 'jquery';
+import AddToMyLists from '../components/addToMyLists';
 
 class ApiSearch extends Component {
   constructor(){
@@ -9,7 +9,6 @@ class ApiSearch extends Component {
     }
     this.onFormSubmit = this.onFormSubmit.bind(this);
   }
-
   onFormSubmit(e){
     e.preventDefault()
     let movieSearch = this.refs.movieSearch.value;
@@ -20,7 +19,6 @@ class ApiSearch extends Component {
         this.setState({movieSearch: json.results});
     });
   }
-
   render() {
     return (
       <div id="apiSearch">
@@ -41,22 +39,31 @@ class ApiSearch extends Component {
         <div className="movies">
           { this.state.movieSearch.map(eachMovie => {
               return(
-                <div class="card text-white bg-dark col-sm-3">
-                  <img class="card-img-top"
-                       src={ `https://image.tmdb.org/t/p/w500//` + eachMovie.poster_path }
+                <div className="card text-white bg-dark col-sm-3">
+                  <img className="card-img-top"
+                       src={ `https://image.tmdb.org/t/p/w500` + eachMovie.poster_path }
                        alt="movie poster" />
-                  <div class="card-body">
-                    <h5 class="card-title"><strong>{ eachMovie.title }</strong></h5>
-                    <button class="btn btn-primary col-sm-12"
+                  <div className="card-body">
+                    <h5 className="card-title"><strong>{ eachMovie.title }</strong></h5>
+                    <button className="btn btn-primary col-sm-12"
                             type="button"
                             data-toggle="collapse"
                             data-target="#movieDescription"
                             aria-expanded="false"
                             aria-controls="movieDescription">Movie Overview</button>
-                    <div class="collapse" id="movieDescription">
-                      <p class="card-text">{ eachMovie.overview }</p>
+                    <div className="collapse" id="movieDescription">
+                      <p className="card-text">{ eachMovie.overview }</p>
                     </div>
-                    <button id="addToListButton" href="#" class="btn btn-primary col-sm-12">Add to MyLists</button>
+                    <button id="addToListButton" className="btn btn-primary col-sm-12" type="button" data-toggle="modal" data-target={ '#' + eachMovie.id}>Add to MyLists</button>
+                      <div className="modal fade" id={eachMovie.id} tabIndex="-1" role="dialog"  aria-hidden="true">
+                        <div className="modal-dialog modal-dialog-centered">
+                          <div className="modal-content">
+                            <div className="modal-body">
+                              <AddToMyLists moviePoster={ eachMovie.poster_path } title={ eachMovie.title } overview={ eachMovie.overview }/>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                   </div>
                 </div>
               )
