@@ -7,6 +7,10 @@
   height: 80px;
 }*/
 
+body {
+  background-color: #eee;
+}
+
 .App-header {
   background-color: #222;
   height: 15vh;
@@ -29,6 +33,7 @@
   float: right;
   color: white;
   border: 1px solid white;
+  margin-left: 1vw;
 }
 
 #nav h3 {
@@ -49,12 +54,30 @@
   text-align: center;
 }
 
+#loginForm {
+  color: black;
+  text-align: center;
+}
+
 .navLinks {
   color: white;
 }
 
 .navLinks:hover {
   color: #999;
+}
+
+.card {
+  padding: 2vh;
+  margin: 2vh;
+}
+
+.card-title {
+  text-align: center;
+}
+
+#addToListButton {
+  margin-top: .5vh;
 }
 
 /*.App-title {

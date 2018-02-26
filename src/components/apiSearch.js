@@ -27,10 +27,10 @@ class ApiSearch extends Component {
         <h1>API MyMovies</h1>
         <hr/>
         <form className="form-inline" onSubmit={ this.onFormSubmit }>
-          <label>Search Movies</label>
+          <label><strong>Search Movies</strong></label>
           <input
             type="text"
-            placeholder="search movies"
+            placeholder="movie title"
             ref="movieSearch"
             required />
           <input
@@ -41,10 +41,23 @@ class ApiSearch extends Component {
         <div className="movies">
           { this.state.movieSearch.map(eachMovie => {
               return(
-                <div>
-                  <img src={ `https://image.tmdb.org/t/p/w200//` + eachMovie.poster_path } alt="movie poster"/>
-                  <p>{ eachMovie.title }</p>
-                  <p>{ eachMovie.overview }</p>
+                <div class="card text-white bg-dark col-sm-3">
+                  <img class="card-img-top"
+                       src={ `https://image.tmdb.org/t/p/w500//` + eachMovie.poster_path }
+                       alt="movie poster" />
+                  <div class="card-body">
+                    <h5 class="card-title"><strong>{ eachMovie.title }</strong></h5>
+                    <button class="btn btn-primary col-sm-12"
+                            type="button"
+                            data-toggle="collapse"
+                            data-target="#movieDescription"
+                            aria-expanded="false"
+                            aria-controls="movieDescription">Movie Overview</button>
+                    <div class="collapse" id="movieDescription">
+                      <p class="card-text">{ eachMovie.overview }</p>
+                    </div>
+                    <button id="addToListButton" href="#" class="btn btn-primary col-sm-12">Add to MyLists</button>
+                  </div>
                 </div>
               )
             }
@@ -54,6 +67,5 @@ class ApiSearch extends Component {
    );
   }
 }
-
 
 export default ApiSearch
