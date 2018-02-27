@@ -1,7 +1,51 @@
+## MyMovies App: Description
+
+Welcome, this is an app for users to make movie lists of their favorite movies, movies they want to watch, or movies they think other people should watch.  This App uses a third party API to retrieve data about movies that you can save to your favorite lists.  Those lists will be able to be viewed by other members and later on a comments feature will be added so you can let everyone know what you think about any particular movie list.  Please keep comments in good taste with respect for the MyList member.  I recommend you do not use one of your usual passwords as currently the site is without certain security measure (to be update in a future release).        
+
+- Please note this site is still under construction so feel free to explore but more will be added in the near future.  
+
+## Technologies Used
+- Mongoose + MongoDB
+- Express
+- React
+- Node.js
+
+- Bootstrap
+- (Sweat + Blood) / Braincells * Coffee
+
+## Installation and Setup (For Mac users)
+
+After you clone/fork, you will need to run in your terminal:
+=> npm install
+
+## User Stories
+Users must log in.  Users can use the API search to make categories of their favorite movies in lists and add comments about each movielist.  Users can see other users, and then search the lists of other users and comment on their movie lists as well.
 
 
-## END of creator Readme
-## React Standard ReadMe Below:
+## Wireframes
+
+## Entity Relationship Diagrams (ERD)
+
+## Unsolved Problems and Future Features
+- Unresolved Problems
+  * Login Form needs implementing
+  * Single List view does not display content of list
+  * Security encryption needed for passwords and login
+
+- Future Features
+  * Comments for movie lists
+  * Beautification through CSS
+  * Jumbotron Photos for components
+  * Reviews of the App on the About page
+  * Redesign of Movie List data
+  * User Photos
+  * Add recently viewed movies for User Page view
+  * add 1-5 star ratings of MovieLists and Movies
+  * Users being able to sort their Movie Lists by Star rating or Average Star rating
+
+##
+## -- END of Creator Readme --
+##
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
