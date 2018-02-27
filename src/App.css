@@ -52,8 +52,14 @@ body {
   margin-right: 1vw;
 }
 
-#about, #apiSearch, #myLists, #community {
+#about, #apiSearch, #myLists, #community, #communityMemberAllLists, #communityMemberSingleList {
   margin: 10vw;
+}
+
+#communityMemberSingleList {
+  width: 80vw;
+  height: auto;
+  text-align: center;
 }
 
 #signUpForm {

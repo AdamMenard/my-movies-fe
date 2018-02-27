@@ -12,8 +12,8 @@ class SignUp extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
   onSubmit(e){
-    e.preventDefault();
-    fetch(`http://localhost:8080/api/users`, {
+    // e.preventDefault();
+    fetch(`https://my-movies-be.herokuapp.com/api/users`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -27,7 +27,8 @@ class SignUp extends Component {
       }).then((res) => {
         return res.json()
       }).then((json) => {
-        this.props.history.push('/profiles');
+        console.log('Welcome to MyMovies!')
+        // this.props.history.push('/userProfile');
       })
     }
   render(){
@@ -58,8 +59,10 @@ class SignUp extends Component {
                  type="password"
                  value={this.state.password}
                  onChange={e => this.setState({ password: e.target.value})}
+                 minlength="5"
+                 maxlength="16"
                  required />
-           <small className="form-text text-muted">Must be at least 5 characters long.</small>
+           <small className="form-text text-muted">Must be between 5-16 characters long.</small>
         </div>
         <button className="btn btn-primary"
                 onClick={e => this.onSubmit(e)}>Ready to Join</button>

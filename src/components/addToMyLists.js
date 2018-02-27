@@ -14,7 +14,7 @@ class AddToMyLists extends Component {
     this.updateMovieListTitle = this.updateMovieListTitle.bind(this);
   }
   componentWillMount() {
-    fetch('http://localhost:8080/api/movie_lists').then((res) => {
+    fetch('https://my-movies-be.herokuapp.com/api/movie_lists').then((res) => {
       return res.json();
      }).then((json) => {
        console.log(json);
@@ -27,11 +27,11 @@ class AddToMyLists extends Component {
     this.setState({ newMovieListTitle: e.target.value })
   }
   onAddMovietoMyList(e) {
-    e.preventDefault();
+    // e.preventDefault();
     console.log(this.state.newMovieListTitle);
     console.log(this.props.moviePoster);
     console.log(this.props.overview);
-    fetch(`http://localhost:8080/api/movie_lists`, {
+    fetch(`https://my-movies-be.herokuapp.com/api/movie_lists`, {
       method: 'POST',
 		  headers: {
 		    'Accept': 'application/json',
@@ -39,11 +39,11 @@ class AddToMyLists extends Component {
 		  },
 		  body: JSON.stringify({
 		    title: this.state.newMovieListTitle,
-        movies: [
-          {title: this.props.title},
-          {description: this.props.overview},
-          {image: this.props.moviePoster},
-         ]
+        movies: [{
+           title: this.props.title,
+           description: this.props.overview,
+           image: this.props.moviePoster,
+         }]
 		  }),
 		}).then((res) => {
 		    return res.json()

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 
 class MyLists extends Component {
   constructor() {
@@ -8,7 +9,7 @@ class MyLists extends Component {
     }
   }
   componentWillMount() {
-    fetch('http://localhost:8080/api/movie_lists').then((res) => {
+    fetch('https://my-movies-be.herokuapp.com/api/movie_lists').then((res) => {
       return res.json();
      }).then((json) => {
        console.log(json);
@@ -25,7 +26,7 @@ class MyLists extends Component {
         { this.state.movieLists.map(eachMovieList => {
           return(
             <div>
-              <h4>{ eachMovieList.title }</h4>
+              <Link to="/communityMemberSingleList"><h4>{ eachMovieList.title }</h4></Link>
             </div>
           )}
         )}

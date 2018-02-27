@@ -12,7 +12,7 @@ class ApiSearch extends Component {
   onFormSubmit(e){
     e.preventDefault()
     let movieSearch = this.refs.movieSearch.value;
-    fetch('http://localhost:8080/api/movies?query=' + movieSearch)
+    fetch('https://my-movies-be.herokuapp.com/api/movies?query=' + movieSearch)
       .then(res => res.json())
       .then(json => {
         console.log(json);
