@@ -9,7 +9,7 @@ class MyLists extends Component {
     }
   }
   componentWillMount() {
-    fetch('https://my-movies-be.herokuapp.com/api/movie_lists').then((res) => {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/movie_lists`).then((res) => {
       return res.json();
      }).then((json) => {
        console.log(json);

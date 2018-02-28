@@ -8,16 +8,18 @@ class AddToMyLists extends Component {
       addMovie: [],
       movieLists: [],
       title: [],
+      selectedMovieId: 0,
       newMovieListTitle: ''
     }
     this.onAddMovietoMyList = this.onAddMovietoMyList.bind(this);
+    this.onAddMovieToExistingList = this.onAddMovieToExistingList.bind(this);
     this.updateMovieListTitle = this.updateMovieListTitle.bind(this);
+    this.oldListToAddMovieTo = this.oldListToAddMovieTo.bind(this);
   }
   componentWillMount() {
-    fetch('https://my-movies-be.herokuapp.com/api/movie_lists').then((res) => {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/movie_lists`).then((res) => {
       return res.json();
      }).then((json) => {
-       console.log(json);
        this.setState({
          movieLists:json
        })
@@ -26,12 +28,9 @@ class AddToMyLists extends Component {
   updateMovieListTitle(e) {
     this.setState({ newMovieListTitle: e.target.value })
   }
-  onAddMovietoMyList(e) {
+  onAddMovietoMyList() {
     // e.preventDefault();
-    console.log(this.state.newMovieListTitle);
-    console.log(this.props.moviePoster);
-    console.log(this.props.overview);
-    fetch(`https://my-movies-be.herokuapp.com/api/movie_lists`, {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/movie_lists`, {
       method: 'POST',
 		  headers: {
 		    'Accept': 'application/json',
@@ -53,6 +52,34 @@ class AddToMyLists extends Component {
           newMovieListTitle: '',
 		    });
 		});
+  }
+  oldListToAddMovieTo(e) {
+    console.log(e.target.value)
+    this.setState({ selectedMovieId: e.target.value })
+  }
+  onAddMovieToExistingList() {
+    // e.preventDefault();
+    console.log(this.state.selectedMovieId)
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/movie_lists/${this.state.selectedMovieId}/movies`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+           title: this.props.title,
+           description: this.props.overview,
+           image: this.props.moviePoster,
+      }),
+    }).then((res) => {
+        return res.json()
+    }).then((json) => {
+      console.log(json);
+        // this.setState({
+        //   movieLists: this.state.movieLists.concat(json),
+        //   newMovieListTitle: '',
+        // });
+    });
   }
   render(){
     return(
@@ -84,7 +111,44 @@ class AddToMyLists extends Component {
             value="Make New List"
             className="btn btn-primary"/>
          </form>
-         <MyLists/>
+
+
+
+
+          <form onSubmit={ this.onAddMovieToExistingList }>
+            <input
+              type="hidden"
+              value={ this.props.title }/>
+            <input
+              type="hidden"
+              value={ this.props.moviePoster }/>
+            <input
+              type="hidden"
+              value={ this.props.overview }/>
+            <input
+              type="submit"
+              value="Add to List"
+              className="btn btn-primary"/>
+
+              <select onChange={ this.oldListToAddMovieTo } class="form-control">
+              { this.state.movieLists.map(eachMovieList => {
+                return(
+                    <option value={ eachMovieList._id }>{ eachMovieList.title }</option>
+                )}
+              )}
+            </select>
+          </form>
+
+
+
+
+
+
+
+
+
+         {/* <MyLists/> */}
+
          <hr/>
       </div>
     )

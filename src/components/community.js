@@ -11,7 +11,7 @@ class Community extends Component {
     }
   }
   componentWillMount() {
-    fetch('https://my-movies-be.herokuapp.com/api/users').then((res) => {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/users`).then((res) => {
       return res.json();
      }).then((json) => {
        console.log(json);
