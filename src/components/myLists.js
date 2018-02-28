@@ -26,7 +26,7 @@ class MyLists extends Component {
         { this.state.movieLists.map(eachMovieList => {
           return(
             <div>
-              <Link to="/communityMemberSingleList"><h4>{ eachMovieList.title }</h4></Link>
+              <Link to={`/communityMemberSingleList/${ eachMovieList._id }`}><h4>{ eachMovieList.title }</h4></Link>
             </div>
           )}
         )}

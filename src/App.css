@@ -57,9 +57,15 @@ body {
 }
 
 #communityMemberSingleList {
-  width: 80vw;
+  width: 80%;
   height: auto;
   text-align: center;
+}
+
+#communityMemberSingleListEachMovie {
+  display: inline-block;
+  width: 20%;
+  height: 10%;
 }
 
 #signUpForm {

@@ -4,16 +4,20 @@ class CommunityMemberSingleList extends Component {
   constructor() {
     super();
     this.state = {
-      moviesFromOneList: []
+      moviesFromOneList: {}
     }
   }
   componentWillMount() {
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/movie_lists`).then((res) => {
+    let list_id = this.props.match.params.id
+    console.log(list_id)
+    // fetch(`${process.env.REACT_APP_BACKEND_URL}/api/movie_lists/${list_id}`).then((res) => {
+    fetch(`http://localhost:8080/api/movie_lists/${list_id}`).then((res) => {
       return res.json();
      }).then((json) => {
        console.log(json);
+
        this.setState({
-         moviesFromOneList:json
+         moviesFromOneList: json
      })
    });
   }
@@ -21,29 +25,33 @@ class CommunityMemberSingleList extends Component {
     console.log(this.state.moviesFromOneList)
     return (
       <div id="communityMemberSingleList">
-        <h1>Movie Lists of: (Member's Name)</h1>
+        <h1>MyMovies 🎬: {this.state.moviesFromOneList.title}</h1>
         <hr/>
-        { this.state.moviesFromOneList.map(eachmovieFromOneList => {
-          return (<div>
-          {
-            eachmovieFromOneList.movies.map(eachMovieData => {
+          { this.state.moviesFromOneList.title &&
+            this.state.moviesFromOneList.movies.map(eachMovieData => {
               return(
-                <div className="card text-white bg-dark">
+                <div id="communityMemberSingleListEachMovie" className="card text-white bg-dark">
                   <img className="card-img-top"
                        src={ `https://image.tmdb.org/t/p/w500` + eachMovieData.image }
                        alt="movie poster" />
                   <div className="card-body">
                     <h4 className="card-title">{ eachMovieData.title }</h4>
+                    {/* <button className="btn btn-primary col-sm-12"
+                            type="button"
+                            data-toggle="collapse"
+                            data-target="#movieDescription"
+                            aria-expanded="false"
+                            aria-controls="movieDescription">Movie Overview</button>
+                    <div className="collapse" id="movieDescription">
+                      <p className="card-text">{ eachMovieData.description }</p>
+                    </div> */}
                     <p className="card-text">{ eachMovieData.description }</p>
                   </div>
                 </div>
                 )
               })
             }
-          </div>
-          )
-        })
-      }
+
     </div>
   )
 }

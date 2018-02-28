@@ -54,8 +54,8 @@ class ApiSearch extends Component {
                     <div className="collapse" id="movieDescription">
                       <p className="card-text">{ eachMovie.overview }</p>
                     </div>
-                    <button id="addToListButton" className="btn btn-primary col-sm-12" type="button" data-toggle="modal" data-target={ '#' + eachMovie.id}>Add to MyLists</button>
-                      <div className="modal fade" id={eachMovie.id} tabIndex="-1" role="dialog"  aria-hidden="true">
+                    <button id="addToListButton" className="btn btn-primary col-sm-12" type="button" data-toggle="modal" data-target={ '#' + eachMovie.id }>Add to MyLists</button>
+                      <div className="modal fade" id={ eachMovie.id } tabIndex="-1" role="dialog"  aria-hidden="true">
                         <div className="modal-dialog modal-dialog-centered">
                           <div className="modal-content">
                             <div className="modal-body">

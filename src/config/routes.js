@@ -13,6 +13,6 @@ export default (
       <Route path='/userProfile' component={ UserProfile }/>
       <Route path='/community' component={ Community }/>
       <Route path='/communityMemberAllLists' component={ CommunityMemberAllLists }/>
-      <Route path='/communityMemberSingleList' component={ CommunityMemberSingleList }/>
+      <Route path='/communityMemberSingleList/:id' component={ CommunityMemberSingleList }/>
   </Switch>
 )
