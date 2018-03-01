@@ -10,8 +10,7 @@ class CommunityMemberSingleList extends Component {
   componentWillMount() {
     let list_id = this.props.match.params.id
     console.log(list_id)
-    // fetch(`${process.env.REACT_APP_BACKEND_URL}/api/movie_lists/${list_id}`).then((res) => {
-    fetch(`http://localhost:8080/api/movie_lists/${list_id}`).then((res) => {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/movie_lists/${list_id}`).then((res) => {
       return res.json();
      }).then((json) => {
        console.log(json);

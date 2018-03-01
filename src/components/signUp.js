@@ -13,7 +13,7 @@ class SignUp extends Component {
   }
   onSubmit(e){
     // e.preventDefault();
-    fetch(`https://my-movies-be.herokuapp.com/api/users`, {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/users`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -28,7 +28,7 @@ class SignUp extends Component {
         return res.json()
       }).then((json) => {
         console.log('Welcome to MyMovies!')
-        // this.props.history.push('/userProfile');
+        this.props.history.push('/userProfile');
       })
     }
   render(){
