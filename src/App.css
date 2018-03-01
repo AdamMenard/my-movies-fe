@@ -88,6 +88,21 @@ body {
   width: 30vw;
 }
 
+#movieList {
+  width: 30%;
+  display: inline-block;
+  margin: 1%;
+  padding: 1%;
+  text-align: center;
+  background-color: #bbb;
+  border-radius: 5%;;
+}
+
+#movieSearchResult {
+  width: 30%;
+  display: inline-block;
+}
+
 .navLinks {
   color: white;
 }

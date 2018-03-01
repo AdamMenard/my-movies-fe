@@ -39,7 +39,7 @@ class ApiSearch extends Component {
         <div className="movies">
           { this.state.movieSearch.map(eachMovie => {
               return(
-                <div className="card text-white bg-dark col-sm-3">
+                <div id="movieSearchResult" className="card text-white bg-dark col-sm-3">
                   <img className="card-img-top"
                        src={ `https://image.tmdb.org/t/p/w500` + eachMovie.poster_path }
                        alt="movie poster" />
