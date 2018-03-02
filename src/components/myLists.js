@@ -42,24 +42,24 @@ class MyLists extends Component {
   }
   onEditMovieList(e, eachMovieListId) {
     console.log('Edit button Clicked')
-    let newMovieListTitle = this.state.editedMovieListTitle
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/movie_lists/${ eachMovieListId }`, {
-      method: 'PUT',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        title: newMovieListTitle
-      }),
-    }).then((res) => {
-        return res.json()
-    }).then((json) => {
-      newMovieListTitle.update(function(eachList) {
-          // return
-        });
-        this.setState({ movieLists: newMovieListTitle})
-    });
+    // let newMovieListTitle = this.state.editedMovieListTitle
+    // fetch(`${process.env.REACT_APP_BACKEND_URL}/api/movie_lists/${ eachMovieListId }`, {
+    //   method: 'PUT',
+    //   headers: {
+    //     'Accept': 'application/json',
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify({
+    //     title: newMovieListTitle
+    //   }),
+    // }).then((res) => {
+    //     return res.json()
+    // }).then((json) => {
+    //   newMovieListTitle.update(function(eachList) {
+    //       // return
+    //     });
+    //     this.setState({ movieLists: newMovieListTitle})
+    // });
   }
   render() {
     return (
