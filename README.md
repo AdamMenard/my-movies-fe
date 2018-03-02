@@ -19,8 +19,8 @@ After you clone/fork, you will need to run in your terminal:
 => npm install
 
 ## User Stories
-Users must log in.  Users can use the API search to make categories of their favorite movies in lists and add comments about each movielist.  Users can see other users, and then search the lists of other users and comment on their movie lists as well.
 
+Right now the sign up feature creates new users but the password is not secure and there is no way to login.  The Header contains 3 words that act as buttons for navigating the site.  The home page is the "About" nav button page location. The "MyLists" nav button displays the Movie Search ability and below that a list of all MoviesLists  by their Title with a functional Delete button and work-in-progress Edit button for each Movie List.  The Title of each MovieList inside of the cards on the lower half of the page (on the MyLists navigation) is a link to its contents; where you can see all the Movies in that list and all the information about that Movie which is stored in the database.  The final nav link "Community" selects a display of each Users name, which also acts as a link to display a list of all MovieLists.  The links in the right side of the footer are all to the actual websites spelled out in words.
 
 ## Wireframes
 
