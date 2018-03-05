@@ -28,7 +28,9 @@ class Community extends Component {
         { this.state.community.map(eachMember => {
           return(
             <div>
+              {eachMember._id &&
               <Link to='/communityMemberAllLists'><h4>{ eachMember.name }</h4></Link>
+               }
             </div>
           )}
         )}

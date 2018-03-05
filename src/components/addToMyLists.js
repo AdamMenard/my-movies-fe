@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import MyLists from '../components/myLists';
+// import MyLists from '../components/myLists';
 
 class AddToMyLists extends Component {
   constructor(){
@@ -11,7 +11,7 @@ class AddToMyLists extends Component {
       selectedMovieId: 0,
       newMovieListTitle: ''
     }
-    this.onAddMovietoMyList = this.onAddMovietoMyList.bind(this);
+    this.onAddMovieToMyList = this.onAddMovieToMyList.bind(this);
     this.onAddMovieToExistingList = this.onAddMovieToExistingList.bind(this);
     this.updateMovieListTitle = this.updateMovieListTitle.bind(this);
     this.oldListToAddMovieTo = this.oldListToAddMovieTo.bind(this);
@@ -28,7 +28,7 @@ class AddToMyLists extends Component {
   updateMovieListTitle(e) {
     this.setState({ newMovieListTitle: e.target.value })
   }
-  onAddMovietoMyList() {
+  onAddMovieToMyList() {
     // e.preventDefault();
     fetch(`${process.env.REACT_APP_BACKEND_URL}/api/movie_lists`, {
       method: 'POST',
@@ -88,7 +88,7 @@ class AddToMyLists extends Component {
         <img id="addMoviePoster" src={ `https://image.tmdb.org/t/p/w500` + this.props.moviePoster } alt="movie poster"/>
         <hr/>
         <h4>{ this.props.title }</h4>
-        <form className="form-inline" onSubmit={ this.onAddMovietoMyList }>
+        <form className="form-inline" onSubmit={ this.onAddMovieToMyList }>
           <label><strong>New Movie List</strong></label>
           <input
             value={ this.state.newMovieListTitle }

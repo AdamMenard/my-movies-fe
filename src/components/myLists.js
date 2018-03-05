@@ -70,14 +70,15 @@ class MyLists extends Component {
           return(
             <div id="movieList">
               <Link to={`/communityMemberSingleList/${ eachMovieList._id }`}>
+
                 <h4>{ eachMovieList.title }</h4></Link>
               <button class="btn btn-info"
                       onClick={e => this.onEditMovieList(e, eachMovieList._id)}>Edit:{ eachMovieList.title }</button>
               {/* COMMENT: && operator checks for 'eachMovieList._id' to load before displaying delete button */}
-              {eachMovieList._id &&
+              {/* { eachMovieList._id && */}
               <button className="btn btn-danger"
                       onClick={e => this.onDeleteMovieList(e, eachMovieList._id)}>Delete Movie List</button>
-                    }
+                    {/* } */}
             </div>
           )}
         )}

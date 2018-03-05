@@ -24,12 +24,14 @@ class CommunityMemberSingleList extends Component {
     console.log(this.state.moviesFromOneList)
     return (
       <div id="communityMemberSingleList">
-        <h1>MyMovies 🎬: {this.state.moviesFromOneList.title}</h1>
+        <h1>MyMovies <span role="img" aria-label="MClip">🎬</span>: {this.state.moviesFromOneList.title}</h1>
         <hr/>
           { this.state.moviesFromOneList.title &&
             this.state.moviesFromOneList.movies.map(eachMovieData => {
               return(
+
                 <div id="communityMemberSingleListEachMovie" className="card text-white bg-dark">
+
                   <img className="card-img-top"
                        src={ `https://image.tmdb.org/t/p/w500` + eachMovieData.image }
                        alt="movie poster" />
@@ -46,6 +48,7 @@ class CommunityMemberSingleList extends Component {
                     </div> */}
                     <p className="card-text">{ eachMovieData.description }</p>
                   </div>
+
                 </div>
                 )
               })

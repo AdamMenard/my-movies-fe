@@ -12,7 +12,8 @@ class SignUp extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
   onSubmit(e){
-    // e.preventDefault();
+    console.log(this.props.history)
+    e.preventDefault();
     fetch(`${process.env.REACT_APP_BACKEND_URL}/api/users`, {
       method: 'POST',
       headers: {
@@ -27,8 +28,8 @@ class SignUp extends Component {
       }).then((res) => {
         return res.json()
       }).then((json) => {
-        console.log('Welcome to MyMovies!')
-        this.props.history.push('/userProfile');
+        console.log(json)
+        this.props.history.push(`/userProfile/${json._id}`);
       })
     }
   render(){
@@ -59,8 +60,8 @@ class SignUp extends Component {
                  type="password"
                  value={this.state.password}
                  onChange={e => this.setState({ password: e.target.value})}
-                 minlength="5"
-                 maxlength="16"
+                 minLength="5"
+                 maLength="16"
                  required />
            <small className="form-text text-muted">Must be between 5-16 characters long.</small>
         </div>

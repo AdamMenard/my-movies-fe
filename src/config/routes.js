@@ -11,6 +11,7 @@ export default (
   <Switch>
     <Route exact path='/' component={ About }/>
       <Route path='/userProfile' component={ UserProfile }/>
+      {/* <Route path='/userProfile/:user_id' component={ UserProfile }/> */}
       <Route path='/community' component={ Community }/>
       <Route path='/communityMemberAllLists' component={ CommunityMemberAllLists }/>
       <Route path='/communityMemberSingleList/:id' component={ CommunityMemberSingleList }/>
