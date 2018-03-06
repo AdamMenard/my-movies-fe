@@ -130,7 +130,7 @@ class AddToMyLists extends Component {
               value="Add to List"
               className="btn btn-primary"/>
 
-              <select onChange={ this.oldListToAddMovieTo } class="form-control">
+              <select onChange={ this.oldListToAddMovieTo } className="form-control">
               { this.state.movieLists.map(eachMovieList => {
                 return(
                     <option value={ eachMovieList._id }>{ eachMovieList.title }</option>

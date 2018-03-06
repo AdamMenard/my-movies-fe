@@ -61,7 +61,7 @@ class SignUp extends Component {
                  value={this.state.password}
                  onChange={e => this.setState({ password: e.target.value})}
                  minLength="5"
-                 maLength="16"
+                 maxLength="16"
                  required />
            <small className="form-text text-muted">Must be between 5-16 characters long.</small>
         </div>

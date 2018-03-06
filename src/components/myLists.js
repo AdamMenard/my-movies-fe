@@ -68,13 +68,13 @@ class MyLists extends Component {
           <h1>MyMovies Lists</h1>
         </div>
         <hr/>
+        <div className="row">
         { this.state.movieLists.map(eachMovieList => {
           return(
-            <div id="movieList" className="row col-3">
+            <div id="movieList" className="col-3">
               <Link to={`/communityMemberSingleList/${ eachMovieList._id }`}>
-
                 <h4>{ eachMovieList.title }</h4></Link>
-              <button class="btn btn-info"
+              <button className="btn btn-info"
                       onClick={e => this.onEditMovieList(e, eachMovieList._id)}>Edit:{ eachMovieList.title }</button>
               {/* COMMENT: && operator checks for 'eachMovieList._id' to load before displaying delete button */}
               {/* { eachMovieList._id && */}
@@ -84,6 +84,7 @@ class MyLists extends Component {
             </div>
           )}
         )}
+        </div>
       </div>
    );
   }

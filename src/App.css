@@ -115,6 +115,7 @@ body {
 
 #movieList {
   width: 30%;
+  height: 30%;
   display: inline-block;
   margin: 1%;
   padding: 1%;
