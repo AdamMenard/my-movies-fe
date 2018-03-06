@@ -2,6 +2,9 @@
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
 }*/
+* {
+  box-sizing: border-box;
+}
 
 body {
   background-color: #eee;
@@ -31,6 +34,17 @@ body {
   float: left;
 }
 
+#about #userProfile #myLists {
+  height: 100vh;
+  width: auto;
+}
+
+#apiSearch {
+  height: 50vh;
+  width: 100vw;
+  overflow: scroll;
+}
+
 #login, #signUp{
   float: right;
   color: white;
@@ -52,8 +66,19 @@ body {
   margin-right: 1vw;
 }
 
-#about, #apiSearch, #myLists, #community, #communityMemberAllLists, #communityMemberSingleList {
+#about, #community, #communityMemberAllLists, #communityMemberSingleList {
   margin: 10vw;
+}
+#apiSearch, #myLists {
+  margin: 5vw;
+}
+
+#apiSearch {
+  margin-bottom: 2.5vh;
+}
+
+#myLists {
+  margin-top: 2.5vh;
 }
 
 #communityMemberSingleList {

@@ -63,12 +63,14 @@ class MyLists extends Component {
   }
   render() {
     return (
-      <div id="myLists">
-        <h1>MyMovies Lists</h1>
+      <div id="myLists" className="container">
+        <div className="row col-12">
+          <h1>MyMovies Lists</h1>
+        </div>
         <hr/>
         { this.state.movieLists.map(eachMovieList => {
           return(
-            <div id="movieList">
+            <div id="movieList" className="row col-3">
               <Link to={`/communityMemberSingleList/${ eachMovieList._id }`}>
 
                 <h4>{ eachMovieList.title }</h4></Link>

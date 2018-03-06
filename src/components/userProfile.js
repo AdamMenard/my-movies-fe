@@ -5,7 +5,7 @@ import MyLists from '../components/myLists';
 class UserProfile extends Component {
   render() {
     return (
-      <div>
+      <div id="userProfile" className="row col-12">
         <ApiSearch/>
         <MyLists/>
       </div>
