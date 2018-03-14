@@ -30,7 +30,7 @@ class Community extends Component {
             <div>
               {eachMember._id &&
               <Link to='/communityMemberAllLists'><h4>{ eachMember.name }</h4></Link>
-               }
+                }
             </div>
           )}
         )}

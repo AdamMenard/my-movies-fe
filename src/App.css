@@ -34,7 +34,9 @@ body {
   float: left;
 }
 
-#about #userProfile #myLists {
+#about
+/*#userProfile #myLists */
+{
   height: 100vh;
   width: auto;
 }
@@ -78,7 +80,9 @@ body {
 }
 
 #myLists {
+  width: 100%;
   margin-top: 2.5vh;
+  padding: 0;
 }
 
 #communityMemberSingleList {
@@ -114,7 +118,7 @@ body {
 }
 
 #movieList {
-  width: 30%;
+  /*width:30%;*/
   height: 30%;
   display: inline-block;
   margin: 1%;

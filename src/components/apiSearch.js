@@ -22,7 +22,7 @@ class ApiSearch extends Component {
   render() {
     return (
       <div id="apiSearch">
-        <h1>API MyMovies</h1>
+        {/* <h1>API MyMovies</h1> */}
         <hr/>
         <form className="form-inline" onSubmit={ this.onFormSubmit }>
           <label><strong>Search Movies</strong></label>
@@ -36,6 +36,7 @@ class ApiSearch extends Component {
             value="Show me the Movies!"
             className="btn btn-primary"/>
         </form>
+        <hr/>
         <div className="movies" data-spy="scroll" data-offset="0">
           { this.state.movieSearch.map(eachMovie => {
               return(

@@ -65,7 +65,8 @@ class MyLists extends Component {
     return (
       <div id="myLists" className="container">
         <div className="row col-12">
-          <h1>MyMovies Lists</h1>
+          {/* MYLISTS MOVIE LISTS TITLE */}
+          <h3>Movie Lists</h3>
         </div>
         <hr/>
         <div className="row">
@@ -74,8 +75,9 @@ class MyLists extends Component {
             <div id="movieList" className="col-3">
               <Link to={`/communityMemberSingleList/${ eachMovieList._id }`}>
                 <h4>{ eachMovieList.title }</h4></Link>
-              <button className="btn btn-info"
-                      onClick={e => this.onEditMovieList(e, eachMovieList._id)}>Edit:{ eachMovieList.title }</button>
+                {/* HIDE BUTTON UNTIL EDIT FUNCTION COMPLETE  */}
+              {/* <button className="btn btn-info"
+                      onClick={e => this.onEditMovieList(e, eachMovieList._id)}>Edit:{ eachMovieList.title }</button> */}
               {/* COMMENT: && operator checks for 'eachMovieList._id' to load before displaying delete button */}
               {/* { eachMovieList._id && */}
               <button className="btn btn-danger"
